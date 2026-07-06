@@ -14,9 +14,9 @@
   <body class="min-h-screen bg-rose-50 text-slate-800">
     <div id="app">
       <main class="mx-auto flex max-w-full flex-col">
-        <div class="mx-auto flex max-w-7xl flex-col px-6 py-10 lg:px-10">
-            <section class="overflow-hidden rounded-[2rem] border border-rose-200 bg-gradient-to-br from-red-600 via-rose-500 to-red-400 shadow-2xl shadow-red-500/20">
-              <div class="grid gap-10 px-8 py-12 md:px-12 lg:grid-cols-[1.15fr_0.85fr] lg:px-16 lg:py-16">
+        <div class="mx-auto flex max-w-7xl flex-col md:px-6 lg:px-10 pb-10 md:pt-10">
+            <section class="overflow-hidden rounded-none md:rounded-[2rem] bg-gradient-to-br from-red-600 via-rose-500 to-red-400 shadow-2xl shadow-red-500/20">
+              <div class="grid gap-10 px-4 md:px-8 py-12 md:px-12 lg:grid-cols-[1.15fr_0.85fr] lg:px-16 lg:py-16">
                 <div class="space-y-8">
                     <div class="space-x-2">
                         <div class="inline-flex items-center gap-2 rounded-full border border-white/20 px-3 py-1 text-xs font-medium backdrop-blur cursor-pointer" :class="{ 'bg-white/80 text-black': lang === 'br', 'bg-white/5 text-white': lang !== 'br' }" @click="lang = 'br'">
@@ -54,7 +54,7 @@
                   </div>
                 </div>
     
-                <div class="rounded-[1.5rem] border border-white/20 bg-white/80 p-5 shadow-xl backdrop-blur">
+                <div class="rounded-[1.5rem] border border-white/20 bg-white/80 p-2 md:p-5 shadow-xl backdrop-blur">
                   <img
                     :src="t('hero.imageSrc')"
                     :alt="t('hero.imageAlt')"
@@ -81,53 +81,52 @@
             </section>
         </div>
 
-        <div class="mx-auto flex max-w-7xl flex-col px-6 py-10 lg:px-10">
+        <div class="mx-auto flex max-w-7xl flex-col px-3 md:px-6 pb-10 lg:px-10">
             <section id="about" class="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-            <div class="rounded-[1.5rem] border-rose-200 bg-white p-8 shadow-lg">
-                <p class="text-sm font-semibold uppercase tracking-[0.3em] text-red-500">{{ t('about.eyebrow') }}</p>
-                <h2 class="mt-3 text-3xl font-bold text-slate-900">{{ t('about.title') }}</h2>
-                <p class="mt-4 text-base leading-8 text-slate-600">
-                {{ t('about.description') }}
-                </p>
-            </div>
+              <div class="rounded-[1.5rem] border-rose-200 bg-white p-6 md:p-8 shadow-lg shadow-rose-200">
+                  <p class="text-sm font-semibold uppercase tracking-[0.3em] text-red-500">{{ t('about.eyebrow') }}</p>
+                  <h2 class="mt-3 text-3xl font-bold text-slate-900">{{ t('about.title') }}</h2>
+                  <p class="mt-4 text-base leading-8 text-slate-600">
+                  {{ t('about.description') }}
+                  </p>
+              </div>
 
-            <div class="grid gap-4 sm:grid-cols-3">
-                <div class="rounded-[1.25rem] border-rose-200 bg-white p-6 shadow-sm">
-                <p class="text-3xl font-black text-red-500">{{ t('stats.members.value') }}</p>
-                <p class="mt-2 text-sm text-slate-600">{{ t('stats.members.label') }}</p>
-                </div>
-                <div class="rounded-[1.25rem] border-rose-200 bg-white p-6 shadow-sm">
-                <p class="text-3xl font-black text-red-500">{{ t('stats.access.value') }}</p>
-                <p class="mt-2 text-sm text-slate-600">{{ t('stats.access.label') }}</p>
-                </div>
-                <div class="rounded-[1.25rem] border-rose-200 bg-white p-6 shadow-sm">
-                <p class="text-3xl font-black text-red-600">{{ t('stats.moderation.value') }}</p>
-                <p class="mt-2 text-sm text-slate-600">{{ t('stats.moderation.label') }}</p>
-                </div>
-            </div>
+              <div class="grid gap-4 sm:grid-cols-3">
+                  <div class="rounded-[1.25rem] bg-white p-6 shadow-sm shadow-rose-200">
+                  <p class="text-3xl font-black text-red-500">{{ t('stats.members.value') }}</p>
+                  <p class="mt-2 text-sm text-slate-600">{{ t('stats.members.label') }}</p>
+                  </div>
+                  <div class="rounded-[1.25rem] bg-white p-6 shadow-sm shadow-rose-200">
+                  <p class="text-3xl font-black text-red-500">{{ t('stats.access.value') }}</p>
+                  <p class="mt-2 text-sm text-slate-600">{{ t('stats.access.label') }}</p>
+                  </div>
+                  <div class="rounded-[1.25rem] bg-white p-6 shadow-sm shadow-rose-200">
+                  <p class="text-3xl font-black text-red-600">{{ t('stats.moderation.value') }}</p>
+                  <p class="mt-2 text-sm text-slate-600">{{ t('stats.moderation.label') }}</p>
+                  </div>
+              </div>
             </section>
         </div>
 
-        <div class="mx-auto flex w-full max-w-full flex-col bg-white py-16 px-8">
-            <section class="mx-auto flex w-full max-w-6xl">
-                <div class="flex w-full flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-                    <div>
-                    <p class="text-sm font-semibold uppercase tracking-[0.3em] text-red-500">{{ t('discord.eyebrow') }}</p>
-                    <h3 class="mt-2 text-3xl font-bold text-slate-900">{{ t('discord.title') }}</h3>
-                    <p class="mt-3 max-w-2xl text-base text-slate-600">
-                        {{ t('discord.description') }}
-                    </p>
-                    </div>
-                    <a
-                    :href="t('discord.ctaHref')"
-                    target="_blank"
-                    rel="noreferrer"
-                    class="inline-flex items-center justify-center rounded-full bg-red-600 px-6 py-3 text-base font-semibold text-white transition hover:bg-red-700"
-                    >
-                    {{ t('discord.cta') }}
-                    </a>
+        <div class="mx-auto flex w-full max-w-full flex-col bg-white py-16 px-6 md:px-8">
+          <section class="mx-auto flex w-full max-w-6xl">
+            <div class="flex w-full flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+                <div>
+                <h3 class="mt-2 text-3xl font-bold text-slate-900">{{ t('discord.title') }}</h3>
+                <p class="mt-3 max-w-2xl text-base text-slate-600">
+                    {{ t('discord.description') }}
+                </p>
                 </div>
-            </section>
+                <a
+                :href="t('discord.ctaHref')"
+                target="_blank"
+                rel="noreferrer"
+                class="inline-flex items-center justify-center rounded-full bg-red-600 px-6 py-3 text-base font-semibold text-white transition hover:bg-red-700"
+                >
+                {{ t('discord.cta') }}
+                </a>
+            </div>
+          </section>
         </div>
       </main>
     </div>
@@ -175,7 +174,7 @@
           discord: {
             eyebrow: 'Convite para a comunidade',
             title: 'Junte-se a nós.',
-            description: 'Entre no nosso grupo do Discord para participar de canais de estudo e colaboração. Temos espaços dedicados para cada área da psicologia.',
+            description: 'Entre no nosso grupo do Discord para participar dos nossos canais de estudo e colaboração. Temos espaços dedicados para cada área da psicologia.',
             cta: 'Entrar na comunidade',
             ctaHref: 'https://discord.gg/Wzxm5GEYQh'
           }
@@ -216,12 +215,12 @@
           stats: {
             members: { value: 'Global', label: 'Members connecting across the world' },
             access: { value: '24/7', label: 'Always accessible' },
-            moderation: { value: '100%', label: 'Respectful and thoughtful' }
+            moderation: { value: '100%', label: 'Respectful and welcoming' }
           },
           discord: {
             eyebrow: 'Community invite',
             title: 'Join us.',
-            description: 'Join our Discord group to participate in study and collaboration channels. We have dedicated spaces for each area of psychology.',
+            description: 'Join our Discord group to participate in our study and collaboration channels. We have dedicated spaces for each area of psychology.',
             cta: 'Access the community',
             ctaHref: 'https://discord.gg/Wzxm5GEYQh'
           }
@@ -273,7 +272,7 @@
       });
 
       app.mount('#app');
-      
+
     </script>
   </body>
 </html>
