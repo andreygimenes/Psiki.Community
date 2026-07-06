@@ -20,11 +20,11 @@
               <div class="grid gap-10 px-4 md:px-8 py-12 md:px-12 lg:grid-cols-[1.15fr_0.85fr] lg:px-16 lg:py-16">
                 <div class="space-y-8">
                     <div class="space-x-2">
-                        <div class="inline-flex items-center gap-2 rounded-full border border-white/20 px-3 py-1 text-xs font-medium backdrop-blur cursor-pointer" :class="{ 'bg-white/80 text-black': lang === 'br', 'bg-white/5 text-white': lang !== 'br' }" @click="lang = 'br'">
+                        <div class="inline-flex items-center gap-2 rounded-full border border-white/20 px-3 py-1 text-xs font-medium backdrop-blur cursor-pointer" :class="{ 'bg-white/80 text-black': lang === 'pt-br', 'bg-white/5 text-white': lang !== 'pt-br' }" @click="lang = 'pt-br'">
                           <span>
-                              <img :src="t('pageLangIcon', 'br')" class="h-6 w-6" />
+                              <img :src="t('pageLangIcon', 'pt-br')" class="h-6 w-6" />
                           </span>
-                          <span>{{ t('pageLangName', 'br') }}</span>
+                          <span>{{ t('pageLangName', 'pt-br') }}</span>
                         </div>
                         <div class="inline-flex items-center gap-2 rounded-full border border-white/20 px-3 py-1 text-xs font-medium backdrop-blur cursor-pointer" :class="{ 'bg-white/80 text-black': lang === 'en', 'bg-white/5 text-white': lang !== 'en' }" @click="lang = 'en'">
                           <span>
@@ -133,10 +133,10 @@
     </div>
 
     <script>
-      const SUPPORTED_LANGS = ['br', 'en'];
+      const SUPPORTED_LANGS = ['pt-br', 'en'];
       const translations = {
-        'br': {
-          pageLang: 'br',
+        'pt-br': {
+          pageLang: 'pt-br',
           pageLangName: 'Português',
           pageLangIcon: '/rsc/icons/twemoji--flag-brazil.png',
           pageTitle: 'Psiki',
@@ -233,18 +233,18 @@
           const params = new URLSearchParams(window.location.search);
           const lang = params.get('lang');
           return {
-            lang: SUPPORTED_LANGS.includes(lang) ? lang : 'br'
+            lang: SUPPORTED_LANGS.includes(lang) ? lang : 'pt-br'
           };
         },
         computed: {
           currentTranslations() {
-            return translations[this.lang] || translations['br'];
+            return translations[this.lang] || translations['pt-br'];
           }
         },
         methods: {
           t(path, lang = this.lang) {
             const parts = path.split('.');
-            let value = translations[lang] || translations['br'];
+            let value = translations[lang] || translations['pt-br'];
             for (const part of parts) {
               value = value?.[part];
               if (value === undefined) return path;
