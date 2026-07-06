@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Psiki</title>
+    <meta
+      name="description"
+      content="A welcoming psychology community for thoughtful conversations, peer support, and growth."
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
+  </head>
+  <body class="min-h-screen bg-rose-50 text-slate-800">
+    <div id="app">
+      <main class="mx-auto flex max-w-full flex-col">
+        <div class="mx-auto flex max-w-7xl flex-col px-6 py-10 lg:px-10">
+            <section class="overflow-hidden rounded-[2rem] border border-rose-200 bg-gradient-to-br from-red-600 via-rose-500 to-red-400 shadow-2xl shadow-red-500/20">
+              <div class="grid gap-10 px-8 py-12 md:px-12 lg:grid-cols-[1.15fr_0.85fr] lg:px-16 lg:py-16">
+                <div class="space-y-8">
+                    <div class="space-x-2">
+                        <div class="inline-flex items-center gap-2 rounded-full border border-white/20 px-3 py-1 text-xs font-medium backdrop-blur cursor-pointer" :class="{ 'bg-white/80 text-black': lang === 'br', 'bg-white/5 text-white': lang !== 'br' }" @click="lang = 'br'">
+                          <span>
+                              <img :src="t('pageLangIcon', 'br')" class="h-6 w-6" />
+                          </span>
+                          <span>{{ t('pageLangName', 'br') }}</span>
+                        </div>
+                        <div class="inline-flex items-center gap-2 rounded-full border border-white/20 px-3 py-1 text-xs font-medium backdrop-blur cursor-pointer" :class="{ 'bg-white/80 text-black': lang === 'en', 'bg-white/5 text-white': lang !== 'en' }" @click="lang = 'en'">
+                          <span>
+                              <img :src="t('pageLangIcon', 'en')" class="h-6 w-6" />
+                          </span>
+                          <span>{{ t('pageLangName', 'en') }}</span>
+                        </div>
+                    </div>
+    
+                  <div class="space-y-8">
+                    <h1 class="text-4xl text-white font-black leading-tight sm:text-5xl lg:text-5xl">
+                      {{ t('hero.title') }}
+                    </h1>
+                    <p class="max-w-2xl text-lg text-white/90 sm:text-xl">
+                      {{ t('hero.description') }}
+                    </p>
+                  </div>
+    
+                  <div class="flex flex-col gap-4 sm:flex-row">
+                    <a
+                      :href="t('hero.ctaHref')"
+                      target="_blank"
+                      rel="noreferrer"
+                      class="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-xl font-semibold text-red-600 transition hover:bg-rose-100"
+                    >
+                      {{ t('hero.cta') }}
+                    </a>
+                  </div>
+                </div>
+    
+                <div class="rounded-[1.5rem] border border-white/20 bg-white/80 p-5 shadow-xl backdrop-blur">
+                  <img
+                    :src="t('hero.imageSrc')"
+                    :alt="t('hero.imageAlt')"
+                    class="h-80 w-full rounded-[1rem] object-cover"
+                  />
+                  <div class="mt-4 space-y-3">
+                    <div class="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/60 p-3">
+                      <img :src="t('supportCard.iconSrc')" :alt="t('supportCard.iconAlt')" class="h-8 w-8" />
+                      <div>
+                        <p class="font-semibold">{{ t('supportCard.title') }}</p>
+                        <p class="text-sm text-slate-400">{{ t('supportCard.description') }}</p>
+                      </div>
+                    </div>
+                    <div class="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/60 p-3">
+                      <img :src="t('growthCard.iconSrc')" :alt="t('growthCard.iconAlt')" class="h-8 w-8" />
+                      <div>
+                        <p class="font-semibold">{{ t('growthCard.title') }}</p>
+                        <p class="text-sm text-slate-400">{{ t('growthCard.description') }}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+        </div>
+
+        <div class="mx-auto flex max-w-7xl flex-col px-6 py-10 lg:px-10">
+            <section id="about" class="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+            <div class="rounded-[1.5rem] border-rose-200 bg-white p-8 shadow-lg">
+                <p class="text-sm font-semibold uppercase tracking-[0.3em] text-red-500">{{ t('about.eyebrow') }}</p>
+                <h2 class="mt-3 text-3xl font-bold text-slate-900">{{ t('about.title') }}</h2>
+                <p class="mt-4 text-base leading-8 text-slate-600">
+                {{ t('about.description') }}
+                </p>
+            </div>
+
+            <div class="grid gap-4 sm:grid-cols-3">
+                <div class="rounded-[1.25rem] border-rose-200 bg-white p-6 shadow-sm">
+                <p class="text-3xl font-black text-red-500">{{ t('stats.members.value') }}</p>
+                <p class="mt-2 text-sm text-slate-600">{{ t('stats.members.label') }}</p>
+                </div>
+                <div class="rounded-[1.25rem] border-rose-200 bg-white p-6 shadow-sm">
+                <p class="text-3xl font-black text-red-500">{{ t('stats.access.value') }}</p>
+                <p class="mt-2 text-sm text-slate-600">{{ t('stats.access.label') }}</p>
+                </div>
+                <div class="rounded-[1.25rem] border-rose-200 bg-white p-6 shadow-sm">
+                <p class="text-3xl font-black text-red-600">{{ t('stats.moderation.value') }}</p>
+                <p class="mt-2 text-sm text-slate-600">{{ t('stats.moderation.label') }}</p>
+                </div>
+            </div>
+            </section>
+        </div>
+
+        <div class="mx-auto flex w-full max-w-full flex-col bg-white py-16 px-8">
+            <section class="mx-auto flex w-full max-w-6xl">
+                <div class="flex w-full flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+                    <div>
+                    <p class="text-sm font-semibold uppercase tracking-[0.3em] text-red-500">{{ t('discord.eyebrow') }}</p>
+                    <h3 class="mt-2 text-3xl font-bold text-slate-900">{{ t('discord.title') }}</h3>
+                    <p class="mt-3 max-w-2xl text-base text-slate-600">
+                        {{ t('discord.description') }}
+                    </p>
+                    </div>
+                    <a
+                    :href="t('discord.ctaHref')"
+                    target="_blank"
+                    rel="noreferrer"
+                    class="inline-flex items-center justify-center rounded-full bg-red-600 px-6 py-3 text-base font-semibold text-white transition hover:bg-red-700"
+                    >
+                    {{ t('discord.cta') }}
+                    </a>
+                </div>
+            </section>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      const SUPPORTED_LANGS = ['br', 'en'];
+      const translations = {
+        'br': {
+          pageLang: 'br',
+          pageLangName: 'Português',
+          pageLangIcon: '/rsc/icons/twemoji--flag-brazil.png',
+          pageTitle: 'Psiki',
+          metaDescription: 'Somos uma comunidade acolhedora onde boas conversas acontecem diariamente.',
+          hero: {
+            badge: 'Comunidade',
+            title: 'Converse com estudantes e profissionais da psicologia.',
+            description: 'A Psiki é uma comunidade acolhedora onde boas conversas acontecem diariamente.',
+            cta: 'Entrar na comunidade',
+            ctaHref: 'https://discord.gg/Wzxm5GEYQh',
+            imageSrc: '/rsc/logo.png',
+            imageAlt: 'Comunidade de pessoas acolhedoras'
+          },
+          supportCard: {
+            iconSrc: '/rsc/icons/fluent-color--lightbulb-48.png',
+            iconAlt: 'Ícone de comunidade',
+            title: 'Estude e colabore',
+            description: 'Troque conhecimento e experiências.'
+          },
+          growthCard: {
+            iconSrc: '/rsc/icons/fluent-color--people-community-48.png',
+            iconAlt: 'Ícone de crescimento',
+            title: 'Faça amigos',
+            description: 'Conecte-se com estudantes e psicólogos.'
+          },
+          about: {
+            eyebrow: 'Por que entrar',
+            title: 'Uma comunidade feita para profissionais da psicologia.',
+            description: 'Aqui você troca experiências, tira dúvidas e evolui junto com colegas que compartilham do mesmo desejo de progredir na carreira.'
+          },
+          stats: {
+            members: { value: 'Global', label: 'Aberto para brasileiros e estrangeiros' },
+            access: { value: '24/7', label: 'Participe a qualquer hora do dia' },
+            moderation: { value: '100%', label: 'Respeitoso e acolhedor' }
+          },
+          discord: {
+            eyebrow: 'Convite para a comunidade',
+            title: 'Junte-se a nós.',
+            description: 'Entre no nosso grupo do Discord para participar de canais de estudo e colaboração. Temos espaços dedicados para cada área da psicologia.',
+            cta: 'Entrar na comunidade',
+            ctaHref: 'https://discord.gg/Wzxm5GEYQh'
+          }
+        },
+        en: {
+          pageLang: 'en',
+          pageLangName: 'English',
+          pageLangIcon: '/rsc/icons/twemoji--flag-united-states.png',
+          pageTitle: 'Psiki',
+          metaDescription: 'We are a welcoming psychology community for thoughtful conversations, peer support, and growth.',
+          hero: {
+            badge: 'Community',
+            iconAlt: 'Heart icon',
+            title: 'Connect with psychology students and professionals.',
+            description: 'Psiki is a welcoming community where thoughtful conversations happen daily.',
+            cta: 'Access the community',
+            ctaHref: 'https://discord.gg/Wzxm5GEYQh',
+            imageSrc: '/rsc/logo.png',
+            imageAlt: 'A welcoming community of people supporting each other'
+          },
+          supportCard: {
+            iconSrc: '/rsc/icons/fluent-color--lightbulb-48.png',
+            iconAlt: 'Community icon',
+            title: 'Study and collaborate',
+            description: 'Exchange knowledge and experiences with others.'
+          },
+          growthCard: {
+            iconSrc: '/rsc/icons/fluent-color--people-community-48.png',
+            iconAlt: 'Community icon',
+            title: 'Make friends',
+            description: 'Connect with psychology students and professionals.'
+          },
+          about: {
+            eyebrow: 'Why join',
+            title: 'A community made for psychology professionals.',
+            description: 'Here you can exchange experiences, ask questions, and grow together with peers who share the same desire to progress in their careers.'
+          },
+          stats: {
+            members: { value: 'Global', label: 'Members connecting across the world' },
+            access: { value: '24/7', label: 'Always accessible' },
+            moderation: { value: '100%', label: 'Respectful and thoughtful' }
+          },
+          discord: {
+            eyebrow: 'Community invite',
+            title: 'Join us.',
+            description: 'Join our Discord group to participate in study and collaboration channels. We have dedicated spaces for each area of psychology.',
+            cta: 'Access the community',
+            ctaHref: 'https://discord.gg/Wzxm5GEYQh'
+          }
+        }
+      };
+
+      const app = Vue.createApp({
+        data() {
+          const params = new URLSearchParams(window.location.search);
+          const lang = params.get('lang');
+          return {
+            lang: SUPPORTED_LANGS.includes(lang) ? lang : 'br'
+          };
+        },
+        computed: {
+          currentTranslations() {
+            return translations[this.lang] || translations['br'];
+          }
+        },
+        methods: {
+          t(path, lang = this.lang) {
+            const parts = path.split('.');
+            let value = translations[lang] || translations['br'];
+            for (const part of parts) {
+              value = value?.[part];
+              if (value === undefined) return path;
+            }
+            return value;
+          }
+        },
+        mounted() {
+          document.documentElement.lang = this.lang;
+          document.title = this.t('pageTitle');
+          const metaDescription = document.querySelector('meta[name="description"]');
+          if (metaDescription) {
+            metaDescription.setAttribute('content', this.t('metaDescription'));
+          }
+        },
+        watch: {
+          lang() {
+            document.documentElement.lang = this.lang;
+            document.title = this.t('pageTitle');
+            const metaDescription = document.querySelector('meta[name="description"]');
+            if (metaDescription) {
+              metaDescription.setAttribute('content', this.t('metaDescription'));
+            }
+          }
+        }
+      });
+
+      app.mount('#app');
+    </script>
+  </body>
+</html>
